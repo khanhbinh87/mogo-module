@@ -1,0 +1,111 @@
+mixin menuLink(title,href = "#")
+	li.header-menu-item
+		a.header-menu-link(href= href)=title
+
+mixin headerBottomItem(number,title)
+	.header-bottom-item
+		span.header-bottom-number= number
+		span.header-bottom-text= title
+
+mixin blockBox(caption,title,desc)
+	.block-box
+		h3.block-box-caption= caption
+		h2.block-box-heading= title
+		if desc
+			p.block-box-desc= desc
+
+mixin aboutItem(data)
+	.about-item
+		img.about-img(src = data.src,alt = data.alt)
+		.about-content
+			i.about-icon(class= data.icon)
+			span.about-title=data.title
+
+mixin serviceItem(src,title,desc)
+	.service-item
+		img.service-item-icon(src=src)
+		.service-item-info   
+			h3.service-item-title=title
+			p.service-item-desc=desc
+
+mixin wedoItem(src,title,desc,active="")
+	.wedo-item(class= active)
+		.wedo-item-header
+			img(src=src).wedo-item-icon
+			h3.wedo-item-title= title
+			i.fal.fa-angle-up.wedo-item-arrow
+		.wedo-item-content
+			.wedo-item-text= desc      
+
+mixin teamSocial(facebook="#",twitter="#",pinterest="#",instagram="#")
+	ul.team-social
+		li.team-social-item
+			a.team-social-link(href=facebook)
+				i.fab.fa-facebook-f
+		li.team-social-item
+			a.team-social-link(href=twitter)
+				i.fab.fa-twitter
+		li.team-social-item
+			a.team-social-link(href=pinterest)
+				i.fab.fa-pinterest-p
+		li.team-social-item
+			a.team-social-link(href=instagram)
+				i.fab.fa-instagram
+
+
+mixin teamItem(src="images/img-team3.png",name ="Christopher Cambell",position="Branding/ UX Team")
+	.team-item
+		.team-main
+			img(src=src).team-image
+			.team-content
+				if block
+					block
+		.team-info
+			h3.team-name= name
+			span.team-position= position
+
+mixin workItem(src="./images/img-work1.png",full="",icon ="fa fa-image",title =" Photo",desc = "Lorem ipsum dolor sit amet.")
+	.work-item(class = full)
+		img.work-image(src= src)
+		.work-content
+			i.fas.fa-image.work-icon(class=icon)
+			h3.work-title= title
+			span.work-desc.text.text--light= desc
+
+mixin peopleItem(src="images/img-people3.png",name= "Jaelynn Castillo ",job ="Graphic design",desc ="Lorem ipsum dolor sit amet")
+	li.people-item
+		img.people-avarta(src= src)
+		.people-info
+			h3.people-name= name
+			span.people-job.text.text--light= job
+			p.people-desc.text.text--light= desc
+				
+mixin storyItem(src="https://images.unsplash.com/photo-1554076275-69828dde8347?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDQxfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",dateNumber = 15 ,dateText ="Jan",title="Lorem ipsum dolor sit amet",desc=" Lorem ipsum dolor, sit amet consectetur adipisicing elit. tum deserunt?",views = 500,comment = 200)
+	li.story-item
+		.story-media
+			img.story-image(src=src)
+			.story-date
+				span.story-date-number= dateNumber
+				span.story-date-text.text.text--light= dateText
+		h3.story-title= title
+		.story-desc
+			p.story-desc-inner.text= desc
+		.story-meta
+			.story-meta-item
+				i.fa.fa-eye.story-meta-icon
+				span.story-meta-number.text= views
+			.story-meta-item
+				i.fa.fa-comment.story-meta-icon
+				span.story-meta-number.text= comment
+
+mixin quoteItem(src="./images/img-quote.png",type = false,desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam alias tempora voluptatum molestias, dolore optio illum sunt ad in quisquam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, dolor?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi rerum eligendi debitis ratione vero officiis error laborum velit aliquam! Quas.l",author="John doe")
+	.quote-item
+		if type == false
+			.quote-icon
+				img(src=src)
+		else
+			img(src=src).quote-image
+		.quote-info
+			p.quote-desc= desc
+			span.quote-author= author
+			//- i.fal.fa-angle-right.quote-arrow-right.quote-arr
